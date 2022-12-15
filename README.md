@@ -1,6 +1,8 @@
 # Fractal Jax
 Generate figures of the Julia and Mandelbrot sets with Jax.
 
+`z = z**2 + c`
+
 ## Install
 This package requires Jax - see the [official JAX documentation](https://github.com/google/jax#installation).
 ```
@@ -9,7 +11,7 @@ cd mandelbrot-jax
 pip install .
 ```
 
-## How to use
+## Generate Mandelbrot set figures
 
 ```python
 from fractal_jax import FractalJax
@@ -26,7 +28,7 @@ ax.imshow(
 ```
 ![Figure 1](figs/mandelbrot-1.png)
 
-You can also adjust the region which you care about and the pixel resolution:
+You can adjust the region which you care about (`x_range` and `y_range`) and the pixel resolution (`pixel_res`):
 ```python
 fig, ax = plt.subplots(1, 1, figsize=(5, 5))
 ax.imshow(
@@ -35,10 +37,11 @@ ax.imshow(
 ```
 ![Figure 2](figs/mandelbrot-2.png)
 
-This library also allows you to generate figures of Julia sets:
+## Generate Julia sets figures
+You can also generate figures of Julia sets:
 ```python
 fig, ax = plt.subplots(1, 1, figsize=(5, 5))
-ax.imshow(m.generate_julia(-0.5792518264067199 + 0.5448363340450433j, [-1.5, 1.5], [-1.5, 1.5], 300));
+ax.imshow(m.generate_julia(c=complex(-0.5792518264067199, 0.5448363340450433), x_range=[-1.5, 1.5], y_range=[-1.5, 1.5], pixel_res=300));
 ```
 ![Figure 2](figs/julia-1.png)
 

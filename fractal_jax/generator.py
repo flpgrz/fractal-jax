@@ -18,7 +18,7 @@ class FractalJax:
             Attributes
             ----------
             iterations : int
-                Number of iteration for computing `z = z^2 + c`
+                Number of iteration for computing `z = z**2 + c`
             divergence_threshold : int
                 If z > `divergence_threshold`, we assume divergence to inf
             backend : str
@@ -32,7 +32,7 @@ class FractalJax:
         self._jit_julia = jax.jit(self._run_julia_kernel, backend=backend)
 
     def _run_mandelbrot_kernel(self, c: Array, fractal: Array) -> Array:
-        """Run z = z^2 + c.
+        """Run z = z**2 + c.
         In the Mandelbrot case, c is the point of interest, i.e. the pixel.
         """
         z = c
@@ -44,7 +44,7 @@ class FractalJax:
         return fractal
 
     def _run_julia_kernel(self, c: complex, z: Array, fractal: Array) -> Array:
-        """Run z = z^2 + c.
+        """Run z = z**2 + c.
         In the Julia case, c is a constant.
         z_0 is the point of interest, i.e. the pixel.
         """
