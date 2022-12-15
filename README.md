@@ -37,8 +37,8 @@ ax.imshow(
 ```
 ![Figure 2](figs/mandelbrot-2.png)
 
-## Generate Julia sets figures
-You can also generate figures of Julia sets:
+## Generate Julia set figures
+You can generate figures of the Julia set by specifying the complex constant `c`:
 ```python
 fig, ax = plt.subplots(1, 1, figsize=(5, 5))
 ax.imshow(m.generate_julia(c=complex(-0.5792518264067199, 0.5448363340450433), x_range=[-1.5, 1.5], y_range=[-1.5, 1.5], pixel_res=300));
