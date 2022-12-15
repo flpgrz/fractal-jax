@@ -3,6 +3,8 @@ Generate figures of the Julia and Mandelbrot sets with Jax.
 
 `z = z**2 + c`
 
+<img src="figs/fractals.png" width=50% height=50%>
+
 ## Install
 This package requires Jax - see the [official JAX documentation](https://github.com/google/jax#installation).
 ```
