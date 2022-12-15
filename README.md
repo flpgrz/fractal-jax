@@ -7,7 +7,7 @@ Generate figures of the Julia and Mandelbrot sets with Jax.
 This package requires Jax - see the [official JAX documentation](https://github.com/google/jax#installation).
 ```
 pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-cd mandelbrot-jax
+cd fractal-jax
 pip install .
 ```
 
