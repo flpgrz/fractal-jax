@@ -15,7 +15,7 @@ install_requires = [
 
 setup(
     name='fractal_jax',
-    version='0.1.0',
+    version='0.1.1',
     description=description(),
     author="Filippo Grazioli",
     author_email="sendtofilippo@gmail.com",
