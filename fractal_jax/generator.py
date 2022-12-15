@@ -56,7 +56,7 @@ class FractalJax:
         return fractal
 
     def generate_mandelbrot(self, x_range: Tuple[int], y_range: Tuple[int], pixel_res: int) -> np.ndarray:
-        """Generate the image of a Mandelbrot set.
+        """Generate the image of the Mandelbrot set.
 
         Parameters
         ----------
@@ -70,7 +70,7 @@ class FractalJax:
         Returns
         -------
         numpy.ndarray
-            Image of the generated Mandelbrot set
+            Generated image
         """
         height = int((y_range[1] - y_range[0]) * pixel_res)
         width = int((x_range[1] - x_range[0]) * pixel_res)
@@ -83,23 +83,23 @@ class FractalJax:
         return np.asarray(self._jit_mandelbrot(c, fractal).block_until_ready())
 
     def generate_julia(self, c: complex, x_range: Tuple[int], y_range: Tuple[int], pixel_res: int) -> np.ndarray:
-        """Generate the image of a Julia set.
+        """Generate an image of the Julia set for a given complex constant `c`.
 
         Parameters
         ----------
         c : complex
-            The c constant which defines the Julia set
+            The c constant which defines the image
         x_range : Tuple[int]
             Min and max on the x-axis in the complex plane
         y_range : Tuple[int]
             Min and max on the y-axis in the complex plane
         pixel_res : int
-            Pixel resolution for box x- and y-axis
+            Scaling factor for the pixel resolution for box x- and y-axis
 
         Returns
         -------
         numpy.ndarray
-            Image of the generated Mandelbrot set
+            Generated image
         """
         height = int((y_range[1] - y_range[0]) * pixel_res)
         width = int((x_range[1] - x_range[0]) * pixel_res)
