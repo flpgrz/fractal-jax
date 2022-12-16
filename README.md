@@ -45,7 +45,7 @@ You can generate figures of the Julia set by specifying the complex constant `c`
 fig, ax = plt.subplots(1, 1, figsize=(5, 5))
 c=complex(-0.5792518264067199, 0.5448363340450433)
 ax.imshow(
-m.generate_julia(c=c, x_range=[-1.5, 1.5], y_range=[-1.5, 1.5], pixel_res=300)
+    m.generate_julia(c=c, x_range=[-1.5, 1.5], y_range=[-1.5, 1.5], pixel_res=300)
 )
 ```
 ![Figure 2](figs/julia-1.png)
