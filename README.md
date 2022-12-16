@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 fig, ax = plt.subplots(1, 1, figsize=(5, 5))
 ax.imshow(
     m.generate_mandelbrot(x_range=[-2, 1], y_range=[-1.5, 1.5], pixel_res=300)
-);
+)
 ```
 ![Figure 1](figs/mandelbrot-1.png)
 
@@ -35,7 +35,7 @@ You can adjust the region which you care about (`x_range` and `y_range`) and the
 fig, ax = plt.subplots(1, 1, figsize=(5, 5))
 ax.imshow(
     m.generate_mandelbrot(x_range=[-1, -0.9], y_range=[-.3, -.2], pixel_res=30000))
-);
+)
 ```
 ![Figure 2](figs/mandelbrot-2.png)
 
@@ -43,7 +43,10 @@ ax.imshow(
 You can generate figures of the Julia set by specifying the complex constant `c`:
 ```python
 fig, ax = plt.subplots(1, 1, figsize=(5, 5))
-ax.imshow(m.generate_julia(c=complex(-0.5792518264067199, 0.5448363340450433), x_range=[-1.5, 1.5], y_range=[-1.5, 1.5], pixel_res=300));
+c=complex(-0.5792518264067199, 0.5448363340450433)
+ax.imshow(
+m.generate_julia(c=c, x_range=[-1.5, 1.5], y_range=[-1.5, 1.5], pixel_res=300)
+)
 ```
 ![Figure 2](figs/julia-1.png)
 
