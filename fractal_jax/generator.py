@@ -6,7 +6,7 @@ import numpy as np
 
 
 class FractalJax:
-    """A class for generating images of Mandelbrot and Julia sets with JAX.
+    """A class for generating images of Mandelbrot and Julia sets with Jax.
     """
     def __init__(
             self,
