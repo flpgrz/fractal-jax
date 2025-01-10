@@ -52,7 +52,7 @@ class FractalJax:
             z = z ** 2 + c
             diverged = jax.numpy.absolute(z) > self.divergence_thershold
             diverging_now = diverged & (fractal == self.iterations)
-            fractal = jax.numpy.where(diverging_now, i / self.iterations, fractal)
+            fractal = jax.numpy.where(diverging_now, i, fractal)
         return fractal
 
     def generate_mandelbrot(self, x_range: Tuple[int], y_range: Tuple[int], pixel_res: int) -> np.ndarray:
