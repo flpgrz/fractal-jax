@@ -36,11 +36,15 @@ class FractalJax:
         In the Mandelbrot case, c is the point of interest, i.e. the pixel.
         """
         z = c
-        for i in range(self.iterations):
+        def body_fun(i, carry):
+            z, fractal = carry
             z = z ** 2 + c
             diverged = jax.numpy.absolute(z) > self.divergence_thershold
             diverging_now = diverged & (fractal == self.iterations)
             fractal = jax.numpy.where(diverging_now, i, fractal)
+            return (z, fractal)
+
+        z, fractal = jax.lax.fori_loop(0, self.iterations, body_fun, (z, fractal))
         return fractal
 
     def _run_julia_kernel(self, c: complex, z: Array, fractal: Array) -> Array:
@@ -48,11 +52,15 @@ class FractalJax:
         In the Julia case, c is a constant.
         z_0 is the point of interest, i.e. the pixel.
         """
-        for i in range(self.iterations):
+        def body_fun(i, carry):
+            z, fractal = carry
             z = z ** 2 + c
             diverged = jax.numpy.absolute(z) > self.divergence_thershold
             diverging_now = diverged & (fractal == self.iterations)
             fractal = jax.numpy.where(diverging_now, i, fractal)
+            return (z, fractal)
+
+        z, fractal = jax.lax.fori_loop(0, self.iterations, body_fun, (z, fractal))
         return fractal
 
     def generate_mandelbrot(self, x_range: Tuple[int], y_range: Tuple[int], pixel_res: int) -> np.ndarray:
