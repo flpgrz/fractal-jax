@@ -2,3 +2,4 @@
 notebooks/.ipynb_checkpoints/
 fractal_jax.egg-info/
 build/
+tests/__pycache__/
