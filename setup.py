@@ -18,7 +18,7 @@ extras_require = {
 
 setup(
     name='fractal_jax',
-    version='0.1.2',
+    version='0.2.1',
     description=description(),
     author="Filippo Grazioli",
     author_email="sendtofilippo@gmail.com",
