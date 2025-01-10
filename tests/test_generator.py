@@ -26,6 +26,7 @@ class TestFractalJax(unittest.TestCase):
         result = self.fractal_jax.generate_julia(c, x_range, y_range, pixel_res)
         self.assertIsInstance(result, np.ndarray)
         self.assertEqual(result.shape, (300, 300))
+        assert False
 
 if __name__ == '__main__':
     unittest.main()
