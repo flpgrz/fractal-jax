@@ -12,6 +12,9 @@ install_requires = [
     "matplotlib"
 ]
 
+extras_require = {
+    'test': ['pytest']
+}
 
 setup(
     name='fractal_jax',
@@ -20,5 +23,6 @@ setup(
     author="Filippo Grazioli",
     author_email="sendtofilippo@gmail.com",
     install_requires=install_requires,
+    extras_require=extras_require,
     packages=find_packages(),
 )
