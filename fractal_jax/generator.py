@@ -1,3 +1,4 @@
+""""A module for generating images of Mandelbrot and Julia sets with Jax."""
 from typing import Tuple
 
 import jax
@@ -63,7 +64,9 @@ class FractalJax:
         z, fractal = jax.lax.fori_loop(0, self.iterations, body_fun, (z, fractal))
         return fractal
 
-    def generate_mandelbrot(self, x_range: Tuple[int], y_range: Tuple[int], pixel_res: int) -> np.ndarray:
+    def generate_mandelbrot(
+            self, x_range: Tuple[int], y_range: Tuple[int], pixel_res: int
+        ) -> np.ndarray:
         """Generate the image of the Mandelbrot set.
 
         Parameters
@@ -88,9 +91,11 @@ class FractalJax:
                ]
         c = x + y * 1j
         fractal = jax.numpy.full(c.shape, self.iterations, dtype=jax.numpy.int32)
-        return np.asarray(self._jit_mandelbrot(c, fractal).block_until_ready())
+        return np.asarray(self._jit_mandelbrot(c, fractal).block_until_ready())  # pylint: disable=not-callable
 
-    def generate_julia(self, c: complex, x_range: Tuple[int], y_range: Tuple[int], pixel_res: int) -> np.ndarray:
+    def generate_julia(
+            self, c: complex, x_range: Tuple[int], y_range: Tuple[int], pixel_res: int
+        ) -> np.ndarray:
         """Generate an image of the Julia set for a given complex constant `c`.
 
         Parameters
@@ -117,5 +122,4 @@ class FractalJax:
                ]
         z = x + y * 1j
         fractal = jax.numpy.full(z.shape, self.iterations, dtype=jax.numpy.int32)
-        return np.asarray(self._jit_julia(c, z, fractal).block_until_ready())
-
+        return np.asarray(self._jit_julia(c, z, fractal).block_until_ready())  # pylint: disable=not-callable
