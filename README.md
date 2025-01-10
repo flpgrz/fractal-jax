@@ -13,6 +13,12 @@ cd fractal-jax
 pip install .
 ```
 
+To test, additionally:
+```
+pip install .[test]
+pytest tests
+```
+
 ## Generate Mandelbrot set figures
 
 ```python
